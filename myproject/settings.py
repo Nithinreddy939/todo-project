@@ -20,7 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-sfz03@devj(8=9(zjnoegnl1qg1+9ts9fh=@2og((m45l5i7ye'
+# SECRET_KEY = 'django-insecure-sfz03@devj(8=9(zjnoegnl1qg1+9ts9fh=@2og((m45l5i7ye'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-sfz03@devj(8=9(zjnoegnl1qg1+9ts9fh=@2og((m45l5i7ye')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -83,17 +84,28 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'boss',
+#         'USER':'root',
+#         'PASSWORD':'nandhu',
+#         'HOST':'localhost',
+#         'PORT':'3306',
+
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'boss',
-        'USER':'root',
-        'PASSWORD':'nandhu',
-        'HOST':'localhost',
-        'PORT':'3306',
-
+        'NAME': os.environ.get('DATABASE_NAME', 'boss'),
+        'USER': os.environ.get('DATABASE_USER', 'root'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'nandhu'),
+        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
+        'PORT': os.environ.get('DATABASE_PORT', '3306'),
     }
 }
+
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -129,7 +141,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
