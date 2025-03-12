@@ -1,0 +1,17 @@
+.navbar{
+    background-color: #ffff66;
+    color: white;
+    padding: 10px;
+
+}
+.navbar-brand>img{
+    width: 150px;
+    height: 150px;
+    border-radius: 10%;
+}
+.sign-button{
+    display: flex;
+}
+.btn{
+    margin: 0 10px;
+}

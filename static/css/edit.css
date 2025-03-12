@@ -1,0 +1,23 @@
+body{
+    background-color: black;
+    color: white;
+}
+.edit{
+    border: 2px solid white;
+    padding: 30px;
+    border-radius: 20px;
+}
+.edit-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+input::placeholder{
+    background: transparent;
+    color: white;
+}
+.form-control{
+    background: transparent;
+    color: white;
+} 

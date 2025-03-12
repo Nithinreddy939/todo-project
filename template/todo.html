@@ -1,0 +1,91 @@
+{% extends "index.html" %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo List</title>
+    <link rel="stylesheet" href="{% static "css/todo_page.css" %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align:center;margin:30px 0">Todo App</h1>
+                <form  action="{% url "add" %}" method="POST" class="form">
+                    {% csrf_token %}
+                    <div class="input">
+                        <input type="text" name="task" placeholder="Enter your task" class="form-control" required>
+                        <input type="date" name="date" id="text" placeholder="date of join" class="form-control" required>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+                <div class="item">
+                    <p>show <select name="" id="">
+                        <option value="1" class="form-control">1</option>
+                        <option value="1" class="form-control">2</option>
+                        <option value="1" class="form-control">3</option>
+                        <option value="1" class="form-control">4</option>
+                        <option value="1"hmg class="form-control">5</option>
+                        <option value="1" class="form-control">6</option>
+                        <option value="1" class="form-control">7</option>
+                        <option value="1" class="form-control">8</option>
+                        <option value="1" class="form-control">9</option>
+                        <option value="1" class="form-control">10</option>
+                    </select> entries</p>
+                    <form action="" method="post" class="form">
+                    {% csrf_token %}
+                        <input type="search" name="search" id="" placeholder="search" class="form-control" required>
+                        <button type="submit" class="btn btn-primary">search</button>
+                    </form>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Todo item</th>
+                            <th>Status</th>
+                            <th>Due</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for action in task %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{action.title}}</td>
+                                <td>{{action.status}}</td>
+                                <td>{{action.updated_at}}</td>
+                                <td>
+                                    <a href="{% url "edit" action.title %}" class="btn btn-primary">edit</a>
+                                    <a href="{% url "delete" action.title %}" class="btn btn-danger">delete</a>
+                                    <a href="{% url "index" %}" class="btn btn-success">finished</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                     
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}
+
+
+
+ {% comment %} {% for task in tasks %}
+                        <tr>
+                            <td>{{ task.task }}</td>
+                            <td>{{ task.created }}</td>
+                            <td>{{ task.completed }}</td>
+                            <td>
+                                <a href="{% url 'edit' task.id %}" class="btn btn-primary">Edit</a>
+                                <a href="{% url 'delete' task.id %}" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %} {% endcomment %}

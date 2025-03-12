@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "css/signin_page.css" %}">
+</head>
+<body>
+    <div class="signin">
+        <div class="signin-content">
+            <h1 style="text-align:center">signin form</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="name" name="username" class="form-control" id="name" placeholder="Enter your Username" required> 
+                <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" required>
+                <p class="p">Create An Account? <a href="{% url 'signup' %}">Signup</a></p>
+                <button type="submit" class="btn btn-primary">Signin</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+{% endblock content %}

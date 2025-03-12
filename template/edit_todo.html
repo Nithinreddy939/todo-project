@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "css/edit.css" %}">
+</head>
+<body>
+    <div class="edit-form">
+        <div class="edit">
+            <form action="" method="post">
+                {% csrf_token %}
+                <h1 style="margin:30px 0">Editing data</h1>
+                <input type="text" name="title" id="" placeholder="enter title" required class="form-control"><br>
+                <input type="date" name="date" placeholder='enter date' required class="form-control"><br>
+                <button type="submit" class="btn btn-primary">Submit</button><br>
+                <a href="{% url "todo" %}" style="float:right">back</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+{% endblock content %}
