@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-sfz03@devj(8=9(zjnoeg
 DEBUG = False
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['myapp.vercel.app', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -84,27 +84,27 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'boss',
-#         'USER':'root',
-#         'PASSWORD':'nandhu',
-#         'HOST':'localhost',
-#         'PORT':'3306',
-
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DATABASE_NAME', 'boss'),
-        'USER': os.environ.get('DATABASE_USER', 'root'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'nandhu'),
-        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
-        'PORT': os.environ.get('DATABASE_PORT', '3306'),
+        'NAME': 'boss',
+        'USER':'root',
+        'PASSWORD':'nandhu',
+        'HOST':'localhost',
+        'PORT':'3306',
+
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': os.environ.get('DATABASE_NAME', 'boss'),
+#         'USER': os.environ.get('DATABASE_USER', 'root'),
+#         'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'nandhu'),
+#         'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
+#         'PORT': os.environ.get('DATABASE_PORT', '3306'),
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
